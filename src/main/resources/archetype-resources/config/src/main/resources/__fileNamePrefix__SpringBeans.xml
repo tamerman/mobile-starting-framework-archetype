@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
-    The MIT License (MIT)
 
-    Copyright (C) 2014 by Kuali Foundation
+	The MIT License
+	Copyright (c) 2011 Kuali Mobility Team
 
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
 
-    The above copyright notice and this permission notice shall be included in
+	The above copyright notice and this permission notice shall be included in
+	all copies or substantial portions of the Software.
 
-    all copies or substantial portions of the Software.
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-    THE SOFTWARE.
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	THE SOFTWARE.
+
 -->
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context" xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:cxf="http://cxf.apache.org/core" xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
@@ -41,34 +42,34 @@
 						http://cxf.apache.org/jaxrs
 						http://cxf.apache.org/schemas/jaxrs.xsd">
 
-    <context:property-placeholder location="classpath:/${toolNameShort}.config.properties"/>
+	<context:property-placeholder location="classpath:/${toolNameShort}.config.properties"/>
 
-    <bean id="${toolNameShort}Dao" class="${package}.${toolNameShort}.dao.${fileNamePrefix}DaoImpl">
-    </bean>
+	<bean id="${toolNameShort}Dao" class="${package}.${toolNameShort}.dao.${fileNamePrefix}DaoImpl">
+	</bean>
 
-    <bean id="${toolNameShort}Service" class="${package}.${toolNameShort}.service.${fileNamePrefix}ServiceImpl">
-        <property name="dao" ref="${toolNameShort}Dao"/>
-    </bean>
+	<bean id="${toolNameShort}Service" class="${package}.${toolNameShort}.service.${fileNamePrefix}ServiceImpl">
+		<property name="dao" ref="${toolNameShort}Dao"/>
+	</bean>
 
-    <bean id="${toolNameShort}JsonProvider" class="org.apache.cxf.jaxrs.provider.json.JSONProvider">
-        <property name="serializeAsArray" value="true"/>
-        <property name="arrayKeys">
-            <list>
-                <!--<value></value>-->
-            </list>
-        </property>
-    </bean>
+	<bean id="${toolNameShort}JsonProvider" class="org.apache.cxf.jaxrs.provider.json.JSONProvider">
+		<property name="serializeAsArray" value="true"/>
+		<property name="arrayKeys">
+			<list>
+				<!--<value></value>-->
+			</list>
+		</property>
+	</bean>
 
-    <jaxrs:server id="${toolNameShort}RestEndpoint" address="/${toolNameShort}">
-        <jaxrs:serviceBeans>
-            <ref bean="${toolNameShort}Service"/>
-        </jaxrs:serviceBeans>
-        <jaxrs:providers>
-            <ref bean="${toolNameShort}JsonProvider"/>
-        </jaxrs:providers>
-        <jaxrs:extensionMappings>
-            <entry key="json" value="application/json"/>
-            <entry key="xml" value="application/xml"/>
-        </jaxrs:extensionMappings>
-    </jaxrs:server>
+	<jaxrs:server id="${toolNameShort}RestEndpoint" address="/${toolNameShort}">
+		<jaxrs:serviceBeans>
+			<ref bean="${toolNameShort}Service"/>
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref bean="${toolNameShort}JsonProvider"/>
+		</jaxrs:providers>
+		<jaxrs:extensionMappings>
+			<entry key="json" value="application/json"/>
+			<entry key="xml" value="application/xml"/>
+		</jaxrs:extensionMappings>
+	</jaxrs:server>
 </beans>

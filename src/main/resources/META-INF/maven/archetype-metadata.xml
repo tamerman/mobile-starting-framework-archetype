@@ -1,139 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    The MIT License (MIT)
 
-    Copyright (C) 2014 by Kuali Foundation
+	The MIT License
+	Copyright (c) 2011 Kuali Mobility Team
 
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
 
-    The above copyright notice and this permission notice shall be included in
+	The above copyright notice and this permission notice shall be included in
+	all copies or substantial portions of the Software.
 
-    all copies or substantial portions of the Software.
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-    THE SOFTWARE.
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	THE SOFTWARE.
+
 -->
-<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="kme-tool-archetype"
-    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <requiredProperties>
-        <requiredProperty key="groupId">
-            <defaultValue>org.kuali.mobility</defaultValue>
-        </requiredProperty>
-        <requiredProperty key="kualiGroupId">
-            <defaultValue>org.kuali.mobility</defaultValue>
-        </requiredProperty>
-        <requiredProperty key="groupPath">
-            <defaultValue>org/kuali/mobility</defaultValue>
-        </requiredProperty>
-        <requiredProperty key="kmeVersion" />
-        <requiredProperty key="toolNameShort" />
-        <requiredProperty key="fileNamePrefix" />
-        <requiredProperty key="currentYear"/>
-    </requiredProperties>
+<archetype-descriptor
+	xsi:schemaLocation="
+		http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0
+		http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+		name="kme-tool-archetype"
+	xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<requiredProperties>
+		<requiredProperty key="groupId">
+			<defaultValue>org.kuali.mobility</defaultValue>
+		</requiredProperty>
+		<requiredProperty key="kualiGroupId">
+			<defaultValue>org.kuali.mobility</defaultValue>
+		</requiredProperty>
+		<requiredProperty key="groupPath">
+			<defaultValue>org/kuali/mobility</defaultValue>
+		</requiredProperty>
+		<requiredProperty key="kmeVersion" />
+		<requiredProperty key="toolNameShort" />
+		<requiredProperty key="fileNamePrefix" />
+		<requiredProperty key="currentYear"/>
+	</requiredProperties>
 
   <fileSets>
 
-    <fileSet encoding="UTF-8">
-      <directory>.settings</directory>
-      <includes>
-        <include>**/*.prefs</include>
-      </includes>
-    </fileSet>
+	<fileSet encoding="UTF-8">
+	  <directory>.settings</directory>
+	  <includes>
+		<include>**/*.prefs</include>
+	  </includes>
+	</fileSet>
 
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory></directory>
-      <includes>
-        <include>.project</include>
-      </includes>
-    </fileSet>
+	<fileSet filtered="true" encoding="UTF-8">
+	  <directory></directory>
+	  <includes>
+		<include>.project</include>
+	  </includes>
+	</fileSet>
 
   </fileSets>
 
   <modules>
-    <module id="${rootArtifactId}-config" dir="config" name="${rootArtifactId}-config">
-      <fileSets>
-	    <fileSet filtered="true" encoding="UTF-8">
-	      <directory>src</directory>
-	      <includes>
-	        <include>**/*.properties</include>
-	        <include>**/*.xml</include>
-	        <include>**/*.txt</include>
-	      </includes>
-	    </fileSet>
-      </fileSets>
-    </module>
-    <module id="${rootArtifactId}-api" dir="api" name="${rootArtifactId}-api">
-      <fileSets>
-	    <fileSet filtered="true" encoding="UTF-8">
-	      <directory>src</directory>
-	      <includes>
-	        <include>**/*.project</include>
-	        <include>**/*.java</include>
-	        <include>**/*.xml</include>
-	        <include>**/*.classpath</include>
-	        <include>**/*.txt</include>
-	      </includes>
-	    </fileSet>
-      </fileSets>
-    </module>
-    <module id="${rootArtifactId}-impl" dir="impl" name="${rootArtifactId}-impl">
-      <fileSets>
-	    <fileSet filtered="true" encoding="UTF-8">
-	      <directory>src</directory>
-	      <includes>
-	        <include>**/*.project</include>
-	        <include>**/*.java</include>
-	        <include>**/*.xml</include>
-	        <include>**/*.classpath</include>
-	        <include>**/*.properties</include>
-	        <include>**/*.txt</include>
-	      </includes>
-	    </fileSet>
-      </fileSets>
-    </module>
-    <module id="${rootArtifactId}-web" dir="web" name="${rootArtifactId}-web">
-      <fileSets>
-	    <fileSet filtered="true" encoding="UTF-8">
-	      <directory>src</directory>
-	      <includes>
-	        <include>**/*.project</include>
-	        <include>**/*.xml</include>
-	        <include>**/*.classpath</include>
-	        <include>**/*.txt</include>
-	        <include>**/*.java</include>
-	        <include>**/*.properties</include>
-	      </includes>
-	    </fileSet>
-      </fileSets>
-    </module>
-    <module id="${rootArtifactId}-ui" dir="ui" name="${rootArtifactId}-ui">
-      <fileSets>
-	    <fileSet filtered="true" encoding="UTF-8">
-	      <directory>src</directory>
-	      <includes>
-	        <include>**/*.project</include>
-	        <include>**/*.xml</include>
-	        <include>**/*.classpath</include>
-	        <include>**/*.txt</include>
-	        <include>**/*.tld</include>
-	        <include>**/*.css</include>
-	        <include>**/*.js</include>
-	        <include>**/*.jsp</include>
-	        <include>**/*.xml</include>
-	      </includes>
-	    </fileSet>
-      </fileSets>
-    </module>
+	<module id="${rootArtifactId}-config" dir="config" name="${rootArtifactId}-config">
+	  <fileSets>
+		<fileSet filtered="true" encoding="UTF-8">
+		  <directory>src</directory>
+		  <includes>
+			<include>**/*.properties</include>
+			<include>**/*.xml</include>
+			<include>**/*.txt</include>
+		  </includes>
+		</fileSet>
+	  </fileSets>
+	</module>
+	<module id="${rootArtifactId}-api" dir="api" name="${rootArtifactId}-api">
+	  <fileSets>
+		<fileSet filtered="true" encoding="UTF-8">
+		  <directory>src</directory>
+		  <includes>
+			<include>**/*.project</include>
+			<include>**/*.java</include>
+			<include>**/*.xml</include>
+			<include>**/*.classpath</include>
+			<include>**/*.txt</include>
+		  </includes>
+		</fileSet>
+	  </fileSets>
+	</module>
+	<module id="${rootArtifactId}-impl" dir="impl" name="${rootArtifactId}-impl">
+	  <fileSets>
+		<fileSet filtered="true" encoding="UTF-8">
+		  <directory>src</directory>
+		  <includes>
+			<include>**/*.project</include>
+			<include>**/*.java</include>
+			<include>**/*.xml</include>
+			<include>**/*.classpath</include>
+			<include>**/*.properties</include>
+			<include>**/*.txt</include>
+		  </includes>
+		</fileSet>
+	  </fileSets>
+	</module>
+	<module id="${rootArtifactId}-web" dir="web" name="${rootArtifactId}-web">
+	  <fileSets>
+		<fileSet filtered="true" encoding="UTF-8">
+		  <directory>src</directory>
+		  <includes>
+			<include>**/*.project</include>
+			<include>**/*.xml</include>
+			<include>**/*.classpath</include>
+			<include>**/*.txt</include>
+			<include>**/*.java</include>
+			<include>**/*.properties</include>
+		  </includes>
+		</fileSet>
+	  </fileSets>
+	</module>
+	<module id="${rootArtifactId}-ui" dir="ui" name="${rootArtifactId}-ui">
+	  <fileSets>
+		<fileSet filtered="true" encoding="UTF-8">
+		  <directory>src</directory>
+		  <includes>
+			<include>**/*.project</include>
+			<include>**/*.xml</include>
+			<include>**/*.classpath</include>
+			<include>**/*.txt</include>
+			<include>**/*.tld</include>
+			<include>**/*.css</include>
+			<include>**/*.js</include>
+			<include>**/*.jsp</include>
+			<include>**/*.xml</include>
+		  </includes>
+		</fileSet>
+	  </fileSets>
+	</module>
   </modules>
 
 </archetype-descriptor>
